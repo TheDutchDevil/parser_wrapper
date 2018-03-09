@@ -12,6 +12,14 @@ To re-run the experiments, and execute the full pipeline, see the following [Gis
     
     `key, parsedFiles, parserFailed, parserFailedNoEh, compilerFailed, errorTypesEnum, errorTypesClass, errorTypesStruct, throwStatements, try, tryOpt, tryForce, doStatements, throwMethods, rethrows, catch, catchEnum, catchAll, emptyCatch, emptyCatchEnum, emptyCatchAll, catchPerDoMedian, catchPerDoAverage, slocPerCatchMedian, slocPerCatchAverage, slocPerCatchEnumMedian, slocPerCatchEnumAverage, slocPerCatchAllMedian, slocPerCatchAllAverage`
     
-    What each of the collected metrics means and why these metrics have been chosen is described in the paper. 
+    What each of the collected metrics means and why these metrics have been chosen is described in the paper.
+    
+## Build instructions
+
+Building parser_wrapper includes downloading all dependencies such that `parser_wrapper` can be linked against the dependencies. This is handled by the Swift build system itself. Building `parser_wrapper` can be done by opening a terminal in the root folder of the repository and running `swift build`. Build artifacts can be found in the `.debug` folder.
+
+`Package.swift `is the file which contains the information needed by the build system of Swift. Currently the dependency on `swift-ast` points to a [fork](https://github.com/TheDutchDevil/swift-ast) of the original `swift-ast` repository by yanagiba. This to prevent any breaking API changes from influencing `parser_wrapper`. It should always be possible to point back to the original version of `swift-ast` in case bugs in the original repository are fixed.
+
+
 
 
